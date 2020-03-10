@@ -31,6 +31,7 @@ class Libri extends Bookshop {
   }
 }
 class CD extends Bookshop {
+  use SpeseSpedizioni;
   public $isbn;
   public $titolo;
   public $nomeAutore;
@@ -56,6 +57,7 @@ class CD extends Bookshop {
   }
 }
 class Guide extends Bookshop {
+  use SpeseSpedizioni;
   public $isbn;
   public $titolo;
   public $pagine;
