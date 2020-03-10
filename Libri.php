@@ -19,6 +19,10 @@ class Libri {
   }
 }
 $ilPiccoloPrincipe = new Libri('ISBN001', 'Il Piccolo Principe');
+$ilPiccoloPrincipe->pagine=130;
+$ilPiccoloPrincipe->nomeAutore= 'Antoine de Saint-Exupery';
+$ilPiccoloPrincipe->genere= 'Narrativa';
+$ilPiccoloPrincipe->prezzo= 10.00;
 $ilPiccoloPrincipe->scaffale=25;
 echo $ilPiccoloPrincipe->getPosition();
 
