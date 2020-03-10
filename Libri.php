@@ -1,8 +1,12 @@
 <?php
+
+require_once(__DIR__.'/trait/spesedispedizione.php');
+
 class Bookshop {
   public $genere;
 }
 class Libri extends Bookshop {
+  use SpeseSpedizioni;
   public $isbn;
   public $titolo;
   public $nomeAutore;
@@ -33,12 +37,7 @@ class CD extends Bookshop {
   public $tracce;
   public $prezzo;
   public $scaffale;
-//   trait BuyTrace {
-//     public $download;
-//     public function maxPrice() {
-//       return $download;
-//     }
-// }
+
   public function __construct($_isbn, $_titolo) {
     $this->isbn=$_isbn;
     $this->titolo=$_titolo;
@@ -57,7 +56,6 @@ class CD extends Bookshop {
   }
 }
 class Guide extends Bookshop {
-  // use BuyTrace;
   public $isbn;
   public $titolo;
   public $pagine;
@@ -96,7 +94,7 @@ echo $ilPiccoloPrincipe->calcPrice(5);
 
 var_dump($ilPiccoloPrincipe);
 // esempio di CD
-$NordSudOvestEst = new CD('ISBN002', 'Nord Sud Ovest Est');
+$NordSudOvestEst = new CD ('ISBN002', 'Nord Sud Ovest Est');
 $NordSudOvestEst->nomeAutore= 883;
 $NordSudOvestEst->genere= 'POP';
 $NordSudOvestEst->prezzo= 25.00;
@@ -107,7 +105,7 @@ echo $NordSudOvestEst->calcPrice(10);
 
 var_dump($NordSudOvestEst);
 // esempio guida turistica
-$spagna = new Guide('956-789-1511-16', 'Spagna');
+$spagna = new Guide ('956-789-1511-16', 'Spagna');
 $spagna->editore = 'Lonely Planet';
 $pspagna->pagine = 150;
 $spagna->prezzo = 22.00;
